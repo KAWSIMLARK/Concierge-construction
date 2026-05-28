@@ -1,3 +1,12 @@
+// PWA — enregistre le service worker pour permettre l'installation sur mobile
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch((err) => {
+      console.warn('Service worker non enregistré :', err);
+    });
+  });
+}
+
 // Configure marked
 marked.setOptions({
   breaks: true,
